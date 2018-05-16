@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FindDuplicate {
@@ -11,6 +12,28 @@ public class FindDuplicate {
 		return -1;
 		
 	}
+	
+	public static int duplicate2(int[] a){
+		Arrays.sort(a);
+		for(int i=0;i<a.length-1;i++){
+			if(a[i]==a[i+1])
+				return a[i];			
+		}
+		return -1;
+	}
+	
+	public static int duplicate3(int[] a){
+	for(int i=0;i<a.length;i++)	
+	{
+		if(a[i]<0)			
+		if(a[a[i]]<0)
+			return a[i];
+		else
+			//a[a[i]]=
+		
+	}
+	return -1;
+	}
 
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
@@ -21,15 +44,29 @@ public class FindDuplicate {
 		for(int i =0 ;i<n;i++){
 			a[i]=s.nextInt();
 		}
-		long start = System.currentTimeMillis();
-		int dup = duplicate1(a);
+		int dup;
+		long start;
+		long end;
+		
+		 start = System.currentTimeMillis();
+		 dup = duplicate1(a);
 		if(dup==-1)
 			System.out.println("No dupicates");
 		else
 			System.out.println("dupilicate is :"+dup);
-		long end = System.currentTimeMillis();
+		 end = System.currentTimeMillis();
 		
-		System.out.println("Time:" + (end-start)/1000.0 +"seconds");
+		System.out.println("Time1:" + (end-start)/1000.0 +"seconds");
+		
+		start = System.currentTimeMillis();
+		 dup = duplicate2(a);
+		if(dup==-1)
+			System.out.println("No dupicates");
+		else
+			System.out.println("dupilicate is :"+dup);
+		 end = System.currentTimeMillis();
+		
+		System.out.println("Time2:" + (end-start)/1000.0 +"seconds");
 
 	}
 
