@@ -23,13 +23,16 @@ public class FindDuplicate {
 	}
 	
 	public static int duplicate3(int[] a){
+		int nn=0;
 	for(int i=0;i<a.length;i++)	
 	{
-		if(a[i]<0)			
-		if(a[a[i]]<0)
-			return a[i];
+		if(a[i]<0)	
+			  nn = -a[i];
+		else nn=a[i];
+		if(a[nn]<0)
+			return -a[i];
 		else
-			//a[a[i]]=
+			a[nn]=-a[nn];
 		
 	}
 	return -1;
@@ -68,6 +71,15 @@ public class FindDuplicate {
 		
 		System.out.println("Time2:" + (end-start)/1000.0 +"seconds");
 
+		start = System.currentTimeMillis();
+		 dup = duplicate3(a);
+		if(dup==-1)
+			System.out.println("No dupicates");
+		else
+			System.out.println("dupilicate is :"+dup);
+		 end = System.currentTimeMillis();
+		
+		System.out.println("Time3:" + (end-start)/1000.0 +"seconds");
 	}
 
 }
